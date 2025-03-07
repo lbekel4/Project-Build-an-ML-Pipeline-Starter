@@ -22,6 +22,24 @@ def go(args):
     run = wandb.init(project="nyc_airbnb", group="cleaning", save_code=True)
     artifact_local_path = run.use_artifact("lbekel-western-governors-university/nyc_airbnb/sample.csv:latest").file()
     df = pd.read_csv(artifact_local_path)
+    logger.info("Removing out-of-area listings outside NYC boundaries")
+
+    # NYC longitude and latitude boundaries
+    nyc_bounds = {
+        "min_lat": 40.4774,
+        "max_lat": 40.9176,
+        "min_lon": -74.2591,
+        "max_lon": -73.7004
+    }
+
+    # Keep only listings within NYC
+    df = df[
+        (df["latitude"] >= nyc_bounds["min_lat"]) & (df["latitude"] <= nyc_bounds["max_lat"]) &
+        (df["longitude"] >= nyc_bounds["min_lon"]) & (df["longitude"] <= nyc_bounds["max_lon"])
+    ]
+
+    logger.info(f"Remaining data points after NYC boundary filtering: {df.shape[0]}")
+
     # Drop outliers
     min_price = args.min_price
     max_price = args.max_price
@@ -32,6 +50,8 @@ def go(args):
 
     idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
     df = df[idx].copy()
+    # idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    # df = df[idx].copy()
     # Save the cleaned file
     df.to_csv('clean_sample.csv',index=False)
 
