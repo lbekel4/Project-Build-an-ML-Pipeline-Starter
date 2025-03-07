@@ -8,13 +8,21 @@ In this project you will build such a pipeline.
 
 ## Table of contents
 
-- [Preliminary steps](#preliminary-steps)
-  * [Fork the Starter Kit](#fork-the-starter-kit)
-  * [Create environment](#create-environment)
-  * [Get API key for Weights and Biases](#get-api-key-for-weights-and-biases)
-  * [The configuration](#the-configuration)
-  * [Running the entire pipeline or just a selection of steps](#Running-the-entire-pipeline-or-just-a-selection-of-steps)
-  * [Pre-existing components](#pre-existing-components)
+- [Build an ML Pipeline for Short-Term Rental Prices in NYC](#build-an-ml-pipeline-for-short-term-rental-prices-in-nyc)
+  - [Table of contents](#table-of-contents)
+  - [Preliminary steps](#preliminary-steps)
+    - [Supported Operating Systems](#supported-operating-systems)
+    - [Python Requirement](#python-requirement)
+    - [Fork the Starter kit](#fork-the-starter-kit)
+    - [Create environment](#create-environment)
+    - [Get API key for Weights and Biases](#get-api-key-for-weights-and-biases)
+    - [The configuration](#the-configuration)
+    - [Running the entire pipeline or just a selection of steps](#running-the-entire-pipeline-or-just-a-selection-of-steps)
+    - [Pre-existing components](#pre-existing-components)
+  - [In case of errors](#in-case-of-errors)
+    - [Environments](#environments)
+    - [MLflow \& Wandb](#mlflow--wandb)
+  - [License](#license)
 
 ## Preliminary steps
 
@@ -38,7 +46,7 @@ and click on `Fork` in the upper right corner. This will create a fork in your G
 repository that is under your control. Now clone the repository locally so you can start working on it:
 
 ```
-git clone https://github.com/[your github username]/Project-Build-an-ML-Pipeline-Starter.git
+git clone (https://github.com/lbekel4/Project-Build-an-ML-Pipeline-Starter/)
 ```
 
 and go into the repository:

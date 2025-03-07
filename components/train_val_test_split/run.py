@@ -41,7 +41,7 @@ def log_artifact(artifact_name, artifact_type, artifact_description, filename, w
 
 def go(args):
     # run = wandb.init(job_type="train_val_test_split")
-    run = wandb.init(project="Project-Build-an-ML-Pipeline-Starter-components_train_val_test_split2", job_type="train_val_test_split2")
+    run = wandb.init(project="nyc_airbnb", job_type="train_val_test_split")
 
     run.config.update(args)
 
@@ -49,7 +49,7 @@ def go(args):
     # particular version of the artifact
     logger.info(f"Fetching artifact {args.input}")
     # artifact_local_path = run.use_artifact(args.input).file()
-    artifact_local_path = run.use_artifact("lbekel-western-governors-university/Project-Build-an-ML-Pipeline-Starter-src_basic_cleaning/clean_sample2.csv").file()
+    artifact_local_path = run.use_artifact("lbekel-western-governors-university/nyc_airbnb/sample.csv:latest").file()
     df = pd.read_csv(artifact_local_path)
 
     logger.info("Splitting trainval and test")
